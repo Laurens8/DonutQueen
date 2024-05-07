@@ -1,0 +1,36 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model DonutQueen.ViewModels.BeschikbaarheidViewModel
+@{
+    ViewData["Title"] = "Beschikbaarheid donuts" ;
+
+}
+<h1>@ViewData["Title"] @Model.Winkelnaam</h1>
+<br />
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th class="m-md-3">Donuts  </th>
+
+            <th class="m-md-3">Hoeveelheid</t>
+
+       </tr>
+    </thead>
+    @foreach (var item in Model.WinkelDonuts)
+    {
+        <tr>
+            <td class="m-md-3">
+                @Html.DisplayFor(modelItem => item.Donut.Naam)
+            </td>
+            <td class="m-md-3">
+                @Html.DisplayFor(modelItem => item.Hoeveelheid) 
+            </td>
+
+
+ 
+        </tr>
+    }
+</table>

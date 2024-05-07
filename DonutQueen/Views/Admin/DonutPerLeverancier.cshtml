@@ -1,0 +1,33 @@
+﻿@model DonutQueen.ViewModels.DonutsPerLeverancierViewModel
+@{
+    ViewData["Title"] = "Donuts per leverancier";
+
+}
+<h1>@ViewData["Title"]</h1>
+<br />
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>Leverancier  </th>
+
+            <th> Contactpersoon</th>
+
+            <th>Donut </th>
+        </tr>
+    </thead>
+    @foreach (var item in Model.LeverancierDonuts.OrderBy(x => x.Leverancier.LeveranciersNaam))
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Leverancier.LeveranciersNaam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Leverancier.VoornaamContact) @Html.DisplayFor(modelItem => item.Leverancier.FamilienaamContact)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Donut.Naam)
+
+            </td>
+        </tr>
+    }
+</table>
